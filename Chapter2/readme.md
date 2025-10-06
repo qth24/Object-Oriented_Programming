@@ -1,17 +1,37 @@
-# Bài tập chương này gồm 4 bài:
+# Chapter 2 — Exercises
 
-## 1) Viết chương trình nhập vào 2 phân số, tính tổng, hiệu, tích, thương và xuất kết quả.
-## 2) Viết chương trình cho phép nhập một dãy phân số. Cài đặt hàm tính tổng các phân số và tìm phân số lớn nhất.
-### Solution:
-Bài 1 và 2 em gộp chung thành 1 file, câu 1 do đã làm ở tuần trước nên em sẽ không nhắc lại (sử dụng source cũ). Ở câu 2 em thêm 2 hàm, 1 hàm tính tổng các phân số có trong list bằng cách dùng hàm add (đã viết để cộng 2 phân số), 1 hàm duyệt qua list và tìm max value.
+## Nội dung thư mục
 
-## 3) Viết chương trình nhập vào 2 ma trận. Tính tổng, hiệu, tích hai ma trận đã nhập và in kết quả ra màn hình.
-### Solution:
-Sử dụng mảng 2 chiều làm ma trận, thực hiện các phép cộng, trừ, nhân ma trận theo công thức của ĐSTT rồi in ra.
+- `Exercise1+2.py` — Lớp và hàm xử lý phân số: cộng, trừ, nhân, chia; tổng danh sách phân số; tìm phân số lớn nhất
+- `Exercise3.py` — Các phép toán trên ma trận: cộng, trừ, nhân (với kiểm tra kích thước)
+- `Exercise4.py` — Lớp `Student` (Python): lưu thông tin sinh viên và tính điểm trung bình, in danh sách
 
-## 4) Viết chương trình cho phép người dùng:
-- Nhập vào thông tin của một học sinh gồm: mã học sinh(chuỗi), họ tên, giới tính, điểm toán, điểm lý, điểm hóa.
-- Tính điểm trung bình và xuất thông tin chi tiết của học sinh ra màn hình.
+---
 
-### Solution:
-Tạo class student với 6 parameter gồm mã học sinh(chuỗi), họ tên, giới tính, điểm toán, điểm lý, điểm hóa, tạo thêm 1 trường average = (math + physics + chemist)/3 ngay trong class đó, viết lệnh nhập và in list có class student đó ra.
+## Chi tiết từng bài
+
+### Exercise1+2.py (Python)
+- Mô tả: Định nghĩa lớp `Fraction` và các hàm thao tác:
+	- `add`, `subtract`, `multiple`, `devide` cho hai phân số
+	- `sum_list(fractions)` để tính tổng một danh sách phân số
+	- `max_frac(fractions)` để tìm phân số lớn nhất theo giá trị thực
+- Input (chạy tương tác):
+	- Nhập hai phân số theo định dạng `a/b` (a và b là số nguyên, b != 0)
+	- Sau đó nhập số lượng phân số và từng phân số để tính tổng danh sách và tìm phần tử lớn nhất
+- Output: In kết quả tổng, hiệu, tích, thương của hai phân số; in tổng của danh sách và phân số lớn nhất.
+- Ghi chú: Kết quả được rút gọn bằng gcd; nếu kết quả là số nguyên thì in dạng nguyên, nếu là phân số thì in `p/q`.
+
+### Exercise3.py (Python)
+- Mô tả: Hàm nhập ma trận và thực hiện các phép:
+	- Cộng và trừ hai ma trận có cùng kích thước
+	- Nhân hai ma trận nếu cột của A = hàng của B
+- Input (chạy tương tác):
+	- Nhập `r1 c1` rồi `r1` dòng, mỗi dòng `c1` số nguyên cho ma trận A
+	- Nhập `r2 c2` rồi `r2` dòng cho ma trận B
+- Output: In ma trận tổng/hiệu nếu khả thi; in ma trận tích nếu khả thi; nếu không khả thi sẽ in thông báo tương ứng.
+
+### Exercise4.py (Python)
+- Mô tả: Lớp `Student` lưu các trường `id`, `name`, `gender`, `math`, `physics`, `chemist` và tính `average`.
+- Input (chạy tương tác):
+	- Nhập số lượng sinh viên `n`, sau đó nhập `n` dòng theo định dạng CSV: `ID,Name,Gender,Math,Physics,Chemist`
+- Output: In danh sách sinh viên kèm điểm trung bình.

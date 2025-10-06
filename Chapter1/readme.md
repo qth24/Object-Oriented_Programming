@@ -1,41 +1,47 @@
-# Bài tập chương này gồm 3 bài - bài tập 2, bài tập 3 và bài tập 4
+# Chapter 1 — Exercises
 
-## Bài tập 2
-### Giải thích kết xuất của chương trình sau (Exercise2.cpp)
-- Với (1) -> Không truyền tham số nào, dùng `func (float = 0, float = 0)`
-    Xuất: So thuc: 0 0
-- Với (2) -> Truyền tham số i là số nguyên, dùng `func (int, int = 0)`
-    Xuất: So nguyen: 1 0
-- Với (3) -> Truyền tham số f là số thực, dùng `func (float = 0, float = 0)`
-    Xuất: So thuc: 1.5 0
-- Với (4) -> Truyền tham số i, j là số nguyên, dùng `func (int, int = 0)`
-    Xuất: So nguyen: 1 2
-- Với (5): -> Truyền tham số f, g là số thực, dùng `func (float = 0, float = 0)`
-    Xuất: So thuc: 1.5 2.5
+## Nội dung thư mục
 
-## Bài tập 3
-### a. Viết chương trình nhập vào một phân số, rút gọn phân số và xuất kết quả.
-### b. Viết chương trình nhập vào hai phân số, tìm phân số lớn nhất và xuất kết quả.
-### c. Viết chương trình nhập vào hai phân số. Tính tổng, hiệu, tích, thương giữa chúng và xuất kết quả.
-### d. Viết chương trình nhập vào một ngày. Tìm ngày kế tiếp và xuất kết quả.
+- `Exercise2.cpp` — Ví dụ nạp chồng hàm (overload) và tham số mặc định (C++)
+- `Exercise3.py` — Lớp `Fraction` và các phép toán trên phân số; xử lý ngày (next day)
+- `Exercise4.py` — Lớp `Employee` và `Company`: quản lý nhân viên, tính tổng lương, tìm lương thấp nhất, thống kê thưởng, in danh sách sắp xếp
 
-## Solution: 
-Ở câu a, b, c em đã tạo 1 class Fraction với parameter là tử số và mẫu số, cùng với đó là các hàm dùng để xử lý fraction theo yêu cầu của đề bài. Input nhập vào có dạng a/b, dùng split để tách ra thành tử số và mẫu số, sau đó thì thực hiện theo yêu cầu.
-Ở câu d em dùng thư viện datetime, nhập vào ngày tháng theo format day/month/year, split ra và lưu vào biến datetime, cộng timeline thêm 1 ngày rồi in ra
+---
 
-## Bài tập 4
-### Cho một danh sách lưu thông tin của các nhân viên trong một công ty, thông tin gồm:
-- Mã nhân viên (chuỗi, tối đa là 8 ký tự)
-- Họ và tên (chuỗi, tối đa là 20 ký tự)
-- Phòng ban (chuỗi, tối đa 10 ký tự)
-- Lương cơ bản (số nguyên)
-- Thưởng (số nguyên)
-- Thực lãnh (số nguyên, trong đó thực lãnh = lương cơ bản + thưởng )
-Hãy thực hiện các công việc sau:
-### a.Tính tổng thực lãnh tháng của tất cả nhân viên trong công ty.
-### b.In danh sách những nhân viên có mức lương cơ bản thấp nhất.
-### c.Đếm số lượng nhân viên có mức thưởng >= 1200000.
-### d.In danh sách các nhân viên tăng dần theo phòng ban, nếu phòng ban trùng nhau thì giảm dần theo mã nhân viên.
+## Chi tiết từng bài
 
-## Solution:
-Em đã tạo 2 class là Employee và Company để sử dụng, class Company dùng để lưu trữ số lượng nhân viên, class Employee dùng để lưu các thông tin chi tiết của từng nhân viên. Sau đó viết các hàm cơ bản trong class Company để xử lý theo yêu cầu của đề bài.
+### Exercise2.cpp (C++)
+- Mô tả: File minh họa nạp chồng hàm (function overloading) giữa hai hàm `func` với kiểu tham số khác nhau (int vs float) và tham số mặc định.
+- Hành vi khi chạy (theo nội dung `main`):
+    - `func()` gọi phiên bản `float` với giá trị mặc định -> in "So thuc: 0 0"
+    - `func(i)` khi `i` là int -> gọi phiên bản `int` -> in "So nguyen: 1 0"
+    - `func(f)` khi `f` là float -> gọi phiên bản `float` -> in "So thuc: 1.5 0"
+    - `func(i, j)` với cả hai int -> in "So nguyen: 1 2"
+    - `func(f, g)` với cả hai float -> in "So thuc: 1.5 2.5"
+- Biên dịch / chạy (trong WSL hoặc môi trường có g++):
+
+```bash
+g++ Exercise2.cpp -o exercise2
+./exercise2
+```
+
+### Exercise3.py (Python)
+- Mô tả: Định nghĩa lớp `Fraction` và các hàm phụ trợ:
+    - `shorten()` rút gọn phân số
+    - `compare(frac1, frac2)` so sánh hai phân số
+    - `add`, `subtract`, `multiple`, `devide` — các phép toán hai phân số
+    - Ngoài ra có chức năng nhập một ngày theo định dạng `dd/mm/yyyy` và in ra ngày kế tiếp
+- Input (chạy tương tác):
+    - Nhập hai phân số `a/b` để thực hiện các phép toán và so sánh
+    - Nhập một ngày `day/month/year` để in ngày kế tiếp
+- Output: In kết quả rút gọn, phép toán, phân số lớn hơn, và ngày kế tiếp.
+- Ghi chú: Chương trình sử dụng `math.gcd` để rút gọn; kiểm tra chia cho 0 trong phép chia.
+
+### Exercise4.py (Python)
+- Mô tả: Hai lớp `Employee` và `Company`. `Company` lưu danh sách nhân viên và cung cấp:
+    - `all_net_sal()` — tổng thực lãnh (lương + thưởng)
+    - `lowest_sal()` — danh sách tên nhân viên có lương cơ bản thấp nhất
+    - `bonus_morethan_1200()` — đếm số nhân viên có thưởng >= 1_200_000
+    - `print_sorted_employees()` — in danh sách nhân viên sắp xếp theo (phòng ban tăng dần, mã giảm dần)
+- Input (hiện tại): chương trình khởi tạo sẵn một vài nhân viên mẫu trong `__main__`; có thể dễ dàng thay bằng nhập tương tác hoặc đọc file.
+- Output: In tổng lương, danh sách nhân viên có lương thấp nhất, số nhân viên có thưởng lớn, và danh sách đã sắp xếp.
